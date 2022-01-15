@@ -6,6 +6,8 @@ public class Day {
 
     List<Meal> meals;
 
+
+
     public double getSumCalories {
         // sumuje kalorie meals
     }

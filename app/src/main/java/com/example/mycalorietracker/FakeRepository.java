@@ -12,8 +12,6 @@ public class FakeRepository implements DBRepository {
         fakeProducts.add(new Product(3,3, "Rice", 340.6, 6, 78, 0.5 ));
     }
 
-
-
     @Override
     public Meal getMealByDay(int dayId) {
         return null;
@@ -26,6 +24,6 @@ public class FakeRepository implements DBRepository {
 
     @Override
     public Product getProductById(int productId) {
-        return null;
+        return fakeProducts.get(productId);
     }
 }
