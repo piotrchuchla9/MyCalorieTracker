@@ -2,6 +2,7 @@ package com.example.mycalorietracker;
 
 public class Product {
 
+    private int id;
     private int productId;
     private String productName;
     private double calories;
@@ -9,7 +10,8 @@ public class Product {
     private double carbs;
     private double fats;
 
-    public Product(int productId, String productName, double calories, double proteins, double carbs, double fats) {
+    public Product(int id, int productId, String productName, double calories, double proteins, double carbs, double fats) {
+        this.id = id;
         this.productId = productId;
         this.productName = productName;
         this.calories = calories;
