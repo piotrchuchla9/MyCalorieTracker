@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AddMeal extends AppCompatActivity {
 
@@ -26,12 +28,19 @@ public class AddMeal extends AppCompatActivity {
                 openActivityMain();
             }
         });
-
-
     }
 
     public void openActivityMain(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        RecyclerView products = (RecyclerView)findViewById(R.id.productList);
+        products.setLayoutManager(new LinearLayoutManager(this));
+    }
+
 }
