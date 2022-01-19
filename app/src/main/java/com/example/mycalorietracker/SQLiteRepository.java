@@ -1,5 +1,7 @@
 package com.example.mycalorietracker;
 
+import java.util.List;
+
 public class SQLiteRepository implements DBRepository {
 
 
@@ -19,6 +21,11 @@ public class SQLiteRepository implements DBRepository {
 
     @Override
     public Product getProductById(int productId) {
+        return null;
+    }
+
+    @Override
+    public List<Product> getProducts() {
         return null;
     }
 }
