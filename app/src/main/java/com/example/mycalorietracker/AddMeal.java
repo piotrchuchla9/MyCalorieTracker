@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AddMeal extends AppCompatActivity implements ListViewInterface{
+public class AddMeal extends AppCompatActivity {
 
     private Button backMainButton;
 //    private TextView takeProduct;
@@ -40,18 +40,6 @@ public class AddMeal extends AppCompatActivity implements ListViewInterface{
         });
 
         setContentView(R.layout.listview_row);
-
-        ProductsAdapter.ViewHolder viewHolder = new ProductsAdapter.ViewHolder(findViewById(R.id.productInfo), this);
-
-        viewHolder.productInfo.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                onItemClick(v, viewHolder.productInfo.getId(), viewHolder.productInfo);
-            }
-        });
-
-
     }
 
     public void openActivityMain(){
@@ -72,19 +60,5 @@ public class AddMeal extends AppCompatActivity implements ListViewInterface{
         ProductsAdapter adapter = new ProductsAdapter(this, products);
 
         lvProducts.setAdapter(adapter);
-        //lvProducts.setLayoutManager(new LinearLayoutManager(this));
-
     }
-
-    @Override
-    public void onItemClick(View v, int position, TextView productInfo) {
-        productInfo.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Product ID = " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
 }

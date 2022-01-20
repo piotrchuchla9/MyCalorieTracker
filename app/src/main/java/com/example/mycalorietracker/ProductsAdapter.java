@@ -1,6 +1,7 @@
 package com.example.mycalorietracker;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,11 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.recyclerview_row, parent, false);
         }
+        convertView.setTag(product);
+        convertView.setOnClickListener(view -> {
+            Product p = (Product)view.getTag();
+            Log.d("ProductAdapter", "item clicked " + p.getProductName());
+        });
         // Lookup view for data population
         TextView productInfo = (TextView) convertView.findViewById(R.id.productInfo);
         productInfo.setText(product.getProductName());
