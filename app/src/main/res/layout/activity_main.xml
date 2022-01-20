@@ -134,15 +134,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calorieAmount" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myMeals"
-        android:layout_width="301dp"
-        android:layout_height="281dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todayMeals" />
-
     <TextView
         android:id="@+id/todayMeals"
         android:layout_width="wrap_content"
@@ -155,4 +146,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMealButton" />
+
+    <ListView
+        android:id="@+id/myMealsList"
+        android:layout_width="320dp"
+        android:layout_height="197dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todayMeals" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,23 +2,22 @@ package com.example.mycalorietracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
+public class AddMeal extends AppCompatActivity implements ListViewInterface{
 
     private Button backMainButton;
 //    private TextView takeProduct;
@@ -40,7 +39,7 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
             }
         });
 
-        setContentView(R.layout.recyclerview_row);
+        setContentView(R.layout.listview_row);
 
         ProductsAdapter.ViewHolder viewHolder = new ProductsAdapter.ViewHolder(findViewById(R.id.productInfo), this);
 
@@ -66,14 +65,14 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
         setContentView(R.layout.activity_add_meal);
 
         //list
-        RecyclerView rvProducts = (RecyclerView)findViewById(R.id.productList);
+        ListView lvProducts = (ListView)findViewById(R.id.productList);
 
         products = repository.getProducts();
 
         ProductsAdapter adapter = new ProductsAdapter(products, this);
 
-        rvProducts.setAdapter(adapter);
-        rvProducts.setLayoutManager(new LinearLayoutManager(this));
+        lvProducts.setAdapter(adapter);
+        //lvProducts.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
