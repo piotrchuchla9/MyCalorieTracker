@@ -30,16 +30,8 @@ public class AddMeal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal);
-
-        backMainButton = (Button) findViewById(R.id.backMainButton);
-        backMainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityMain();
-            }
-        });
-
-        setContentView(R.layout.listview_row);
+//        backMainButton = (Button) findViewById(R.id.backMainButton);
+//        backMainButton.setOnClickListener(v -> openActivityMain());
     }
 
     public void openActivityMain(){
@@ -50,8 +42,8 @@ public class AddMeal extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        setContentView(R.layout.activity_add_meal);
-
+        backMainButton = (Button) findViewById(R.id.backMainButton);
+        backMainButton.setOnClickListener(v -> openActivityMain());
         //list
         ListView lvProducts = (ListView)findViewById(R.id.productList);
 
