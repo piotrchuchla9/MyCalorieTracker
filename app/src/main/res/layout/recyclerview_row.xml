@@ -11,8 +11,8 @@
         android:id="@+id/productInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:textSize="20sp"
-        android:onClick="onItemClick" />
+        android:clickable="true"
+        android:onClick="onItemClick"/>
 
 </LinearLayout>

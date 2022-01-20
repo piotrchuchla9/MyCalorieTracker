@@ -15,7 +15,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
     private final RecyclerViewInterface recyclerViewInterface;
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView productInfo;
 
@@ -23,6 +23,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             super(itemView);
 
             productInfo = (TextView) itemView.findViewById(R.id.productInfo);
+            productInfo.setClickable(true);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -31,7 +32,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                         int pos = getAdapterPosition();
 
                         if(pos != RecyclerView.NO_POSITION) {
-                            recyclerViewInterface.onItemClick(pos);
+                            recyclerViewInterface.onItemClick(view, pos, productInfo);
                         }
                     }
                 }

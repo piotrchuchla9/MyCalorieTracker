@@ -21,6 +21,7 @@ import java.util.List;
 public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
 
     private Button backMainButton;
+//    private TextView takeProduct;
 
     List<Product> products;
 
@@ -39,12 +40,15 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
             }
         });
 
-        TextView takeProduct = (TextView) findViewById(R.id.productInfo);
-        takeProduct.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.recyclerview_row);
+
+        ProductsAdapter.ViewHolder viewHolder = new ProductsAdapter.ViewHolder(findViewById(R.id.productInfo), this);
+
+        viewHolder.productInfo.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view) {
-                onItemClick();
+            public void onClick(View v) {
+                onItemClick(v, viewHolder.productInfo.getId(), viewHolder.productInfo);
             }
         });
 
@@ -59,7 +63,7 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
     @Override
     protected void onStart() {
         super.onStart();
-
+        setContentView(R.layout.activity_add_meal);
 
         //list
         RecyclerView rvProducts = (RecyclerView)findViewById(R.id.productList);
@@ -71,22 +75,17 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
         rvProducts.setAdapter(adapter);
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
 
-
-
     }
 
     @Override
-    public void onItemClick(int position) {
-        TextView takeProduct = (TextView) findViewById(R.id.productInfo);
-
-        takeProduct.setOnClickListener(new OnClickListener() {
+    public void onItemClick(View v, int position, TextView productInfo) {
+        productInfo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "Product ID = " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
 
 }
