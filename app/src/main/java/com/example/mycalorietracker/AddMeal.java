@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,7 +21,6 @@ import java.util.List;
 public class AddMeal extends AppCompatActivity {
 
     private Button backMainButton;
-//    private TextView takeProduct;
 
     List<Product> products;
 
@@ -60,5 +60,10 @@ public class AddMeal extends AppCompatActivity {
         ProductsAdapter adapter = new ProductsAdapter(this, products);
 
         lvProducts.setAdapter(adapter);
+        lvProducts.setOnItemClickListener((adapterView, view, i, l) -> {
+            Product p = products.get(i);
+            Log.d("AddMealActivity", "Clicked " + p.getProductName());
+        });
     }
+
 }
