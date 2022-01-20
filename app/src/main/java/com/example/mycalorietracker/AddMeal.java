@@ -69,7 +69,7 @@ public class AddMeal extends AppCompatActivity implements ListViewInterface{
 
         products = repository.getProducts();
 
-        ProductsAdapter adapter = new ProductsAdapter(products, this);
+        ProductsAdapter adapter = new ProductsAdapter(this, products);
 
         lvProducts.setAdapter(adapter);
         //lvProducts.setLayoutManager(new LinearLayoutManager(this));

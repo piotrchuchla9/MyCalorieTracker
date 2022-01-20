@@ -16,69 +16,21 @@ import java.util.List;
 
 public class ProductsAdapter extends ArrayAdapter<Product> {
 
-    private final ListViewInterface listViewInterface;
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView productInfo;
-
-        public ViewHolder(View itemView, ListViewInterface listViewInterface) {
-            super(itemView);
-
-            productInfo = (TextView) itemView.findViewById(R.id.productInfo);
-            productInfo.setClickable(true);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listViewInterface != null) {
-                        int pos = getAdapterPosition();
-
-                        if(pos != RecyclerView.NO_POSITION) {
-                            listViewInterface.onItemClick(view, pos, productInfo);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    private List<Product> products;
-
-    public ProductsAdapter(List<Product> products, ListViewInterface listViewInterface) {
-        this.products = products;
-        this.listViewInterface = listViewInterface;
-    }
-
-    @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View productView = inflater.inflate(R.layout.listview_row, parent, false);
-        ViewHolder viewHolder = new ViewHolder(productView, listViewInterface);
-
-        return viewHolder;
+    public ProductsAdapter(Context context, List<Product> products) {
+        super(context, 0, products);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Product product = products.get(position);
-
-        TextView textView = holder.productInfo;
-        textView.setText(product.getProductName());
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Product product = getItem(position);
+        // Check if an existing view is being reused, otherwise inflate the view
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.recyclerview_row, parent, false);
+        }
+        // Lookup view for data population
+        TextView productInfo = (TextView) convertView.findViewById(R.id.productInfo);
+        productInfo.setText(product.getProductName());
+        // Return the completed view to render on screen
+        return convertView;
     }
-
-
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Product product = products.get(position);
-
-        TextView textView = holder.productInfo;
-        textView.setText(product.getProductName());
-    }
-
-    public int getItemCount() {
-        return products.size();
-    }
-
 }
