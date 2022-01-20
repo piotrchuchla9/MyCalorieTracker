@@ -36,11 +36,11 @@
         app:layout_constraintTop_toBottomOf="@+id/chooseMeal" />
 
     <Button
-        android:id="@+id/backMainButton"
+        android:id="@+id/addButton"
         android:layout_width="107dp"
         android:layout_height="52dp"
         android:layout_marginBottom="16dp"
-        android:text="home"
+        android:text="ADD"
         android:textSize="20sp"
         app:iconPadding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,9 +50,32 @@
     <ListView
         android:id="@+id/productList"
         android:layout_width="371dp"
-        android:layout_height="492dp"
+        android:layout_height="350dp"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchProduct" />
+
+    <TextView
+        android:id="@+id/selectedProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productList" />
+
+    <EditText
+        android:id="@+id/mealQuantity"
+        android:layout_width="109dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="100"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/selectedProduct"
+        app:layout_constraintTop_toBottomOf="@+id/productList" />
 </androidx.constraintlayout.widget.ConstraintLayout>

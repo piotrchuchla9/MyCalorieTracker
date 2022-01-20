@@ -6,21 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ListAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class AddMeal extends AppCompatActivity {
 
-    private Button backMainButton;
+    private Button addButton;
+    private TextView selectedProduct;
+    private EditText mealQuantity;
 
     List<Product> products;
 
@@ -42,8 +39,17 @@ public class AddMeal extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        backMainButton = (Button) findViewById(R.id.backMainButton);
-        backMainButton.setOnClickListener(v -> openActivityMain());
+
+        selectedProduct = (TextView) findViewById(R.id.selectedProduct);
+        mealQuantity = (EditText) findViewById(R.id.mealQuantity);
+
+        selectedProduct.setVisibility(View.INVISIBLE);
+        mealQuantity.setVisibility(View.INVISIBLE);
+
+
+
+        addButton = (Button) findViewById(R.id.addButton);
+        addButton.setOnClickListener(v -> openActivityMain());
         //list
         ListView lvProducts = (ListView)findViewById(R.id.productList);
 
@@ -55,6 +61,12 @@ public class AddMeal extends AppCompatActivity {
         lvProducts.setOnItemClickListener((adapterView, view, i, l) -> {
             Product p = products.get(i);
             Log.d("AddMealActivity", "Clicked " + p.getProductName());
+
+            selectedProduct.setVisibility(View.VISIBLE);
+            mealQuantity.setVisibility(View.VISIBLE);
+
+            selectedProduct.setText(p.getProductName());
+
         });
     }
 
