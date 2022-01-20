@@ -6,6 +6,7 @@ import java.util.List;
 public class FakeRepository implements DBRepository {
 
     private List<Product> fakeProducts = new ArrayList<>();
+    private List<Meal> meals = new ArrayList<>();
 
     public FakeRepository() {
         fakeProducts.add(new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ));
@@ -33,6 +34,11 @@ public class FakeRepository implements DBRepository {
     @Override
     public List<Product> getProducts() {
         return fakeProducts;
+    }
+
+    @Override
+    public void insertMeal(Meal meal) {
+        meals.add(meal);
     }
 
 

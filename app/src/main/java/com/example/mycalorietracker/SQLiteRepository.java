@@ -28,4 +28,9 @@ public class SQLiteRepository implements DBRepository {
     public List<Product> getProducts() {
         return null;
     }
+
+    @Override
+    public void insertMeal(Meal meal) {
+
+    }
 }

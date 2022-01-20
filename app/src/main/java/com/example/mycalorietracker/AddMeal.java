@@ -27,8 +27,6 @@ public class AddMeal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meal);
-//        backMainButton = (Button) findViewById(R.id.backMainButton);
-//        backMainButton.setOnClickListener(v -> openActivityMain());
     }
 
     public void openActivityMain(){
@@ -49,7 +47,12 @@ public class AddMeal extends AppCompatActivity {
 
 
         addButton = (Button) findViewById(R.id.addButton);
-        addButton.setOnClickListener(v -> openActivityMain());
+        addButton.setOnClickListener(v -> {
+            Product p = (Product) selectedProduct.getTag();
+            Meal meal = new Meal(0, p);
+            repository.insertMeal(meal);
+            openActivityMain();
+        });
         //list
         ListView lvProducts = (ListView)findViewById(R.id.productList);
 
@@ -66,7 +69,7 @@ public class AddMeal extends AppCompatActivity {
             mealQuantity.setVisibility(View.VISIBLE);
 
             selectedProduct.setText(p.getProductName());
-
+            selectedProduct.setTag(p);
         });
     }
 

@@ -20,4 +20,9 @@ public class Meal {
         this.fats = fats;
     }
 
+    public Meal(int id, Product p) {
+        this(id, p.getProductId(), p.getProductName(), p.getCalories(), p.getProteins(), p.getCarbs(), p.getFats());
+
+    }
+
 }
