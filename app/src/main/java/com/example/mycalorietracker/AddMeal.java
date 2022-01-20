@@ -21,7 +21,6 @@ import java.util.List;
 public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
 
     private Button backMainButton;
-    private TextView takeProduct = (TextView) findViewById(R.id.productInfo);
 
     List<Product> products;
 
@@ -39,6 +38,17 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
                 openActivityMain();
             }
         });
+
+        TextView takeProduct = (TextView) findViewById(R.id.productInfo);
+        takeProduct.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                onItemClick();
+            }
+        });
+
+
     }
 
     public void openActivityMain(){
@@ -61,18 +71,22 @@ public class AddMeal extends AppCompatActivity implements RecyclerViewInterface{
         rvProducts.setAdapter(adapter);
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
 
-    }
 
+
+    }
 
     @Override
     public void onItemClick(int position) {
+        TextView takeProduct = (TextView) findViewById(R.id.productInfo);
+
         takeProduct.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "Product ID = " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
 
 }
