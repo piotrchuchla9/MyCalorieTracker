@@ -49,7 +49,7 @@ public class AddMeal extends AppCompatActivity {
         addButton = (Button) findViewById(R.id.addButton);
         addButton.setOnClickListener(v -> {
             Product p = (Product) selectedProduct.getTag();
-            Meal meal = new Meal(0, p);
+            Meal meal = new Meal(0, p, Double.parseDouble(mealQuantity.getText().toString()));
             repository.insertMeal(meal);
             openActivityMain();
         });

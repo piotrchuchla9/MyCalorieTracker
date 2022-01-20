@@ -9,4 +9,7 @@ public interface DBRepository {
     List<Product> getProducts();
 
     void insertMeal(Meal meal);
+
+    //getDay
+    //insertDay
 }
