@@ -14,6 +14,10 @@ public class Day {
         this.meals = meals;
     }
 
+
+    //---------------------------------------
+
+
     public int getId() {
         return id;
     }
@@ -38,19 +42,48 @@ public class Day {
         this.meals = meals;
     }
 
-    //    public double getSumCalories {
-//        // sumuje kalorie meals
-//    }
-//
-//    public double getSumProteins {
-//        // sumuje proteiny meals
-//    }
-//
-//    public double getSumCarbs {
-//        // sumuje węgle meals
-//    }
-//
-//    public double getSumFats {
-//        // sumuje tłuszcze meals
-//    }
+
+    //---------------------------------------------
+
+
+
+    public double getSumCalories() {
+        double sum = 0;
+
+        for(int i = 0; i < meals.size(); i++) {
+            sum += meals.get(i).getCalories() * meals.get(i).getQuantity() / 100;
+        }
+
+        return sum;
+    }
+
+    public double getSumProteins() {
+        double sum = 0;
+
+        for(int i = 0; i < meals.size(); i++) {
+            sum += meals.get(i).getProteins() * meals.get(i).getQuantity() / 100;
+        }
+
+        return sum;
+    }
+
+    public double getSumCarbs() {
+        double sum = 0;
+
+        for(int i = 0; i < meals.size(); i++) {
+            sum += meals.get(i).getCarbs() * meals.get(i).getQuantity() / 100;
+        }
+
+        return sum;
+    }
+
+    public double getSumFats() {
+        double sum = 0;
+
+        for(int i = 0; i < meals.size(); i++) {
+            sum += meals.get(i).getFats() * meals.get(i).getQuantity() / 100;
+        }
+
+        return sum;
+    }
 }

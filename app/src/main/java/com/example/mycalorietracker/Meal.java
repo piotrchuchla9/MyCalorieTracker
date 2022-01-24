@@ -26,4 +26,68 @@ public class Meal {
         this.quantity = quantity;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
+    }
+
+    public double getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(double proteins) {
+        this.proteins = proteins;
+    }
+
+    public double getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(double carbs) {
+        this.carbs = carbs;
+    }
+
+    public double getFats() {
+        return fats;
+    }
+
+    public void setFats(double fats) {
+        this.fats = fats;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
 }
