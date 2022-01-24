@@ -42,4 +42,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddMeal.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 }

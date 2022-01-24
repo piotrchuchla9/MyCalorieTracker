@@ -1,7 +1,11 @@
 package com.example.mycalorietracker;
 
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class FakeRepository implements DBRepository {
 
@@ -23,7 +27,7 @@ public class FakeRepository implements DBRepository {
     }
 
     @Override
-    public Day getDay(int dayId) { return null; }
+    public Day getDay(int dayId) { return days.get(dayId); }
 
     @Override
     public Product getProductById(int productId) {
@@ -42,5 +46,18 @@ public class FakeRepository implements DBRepository {
 
     @Override
     public void insertDay(Day day) { days.add(day); }
+
+    @Override
+    public Day getCurrentDay(Day day) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
+        String today = sdf.format(new Date());
+
+        if(getDay(days.size()-1).equals(today)) {
+            return day;
+        } else {
+            return null;
+        }
+
+    }
 
 }

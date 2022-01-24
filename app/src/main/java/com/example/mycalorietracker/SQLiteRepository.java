@@ -38,4 +38,9 @@ public class SQLiteRepository implements DBRepository {
     public void insertDay(Day day) {
 
     }
+
+    @Override
+    public Day getCurrentDay(Day day) {
+        return null;
+    }
 }
