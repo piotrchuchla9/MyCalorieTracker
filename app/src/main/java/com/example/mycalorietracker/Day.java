@@ -14,7 +14,31 @@ public class Day {
         this.meals = meals;
     }
 
-//    public double getSumCalories {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(List<Meal> meals) {
+        this.meals = meals;
+    }
+
+    //    public double getSumCalories {
 //        // sumuje kalorie meals
 //    }
 //

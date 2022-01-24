@@ -17,6 +17,8 @@ public class FakeRepository implements DBRepository {
         fakeProducts.add(new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ));
         fakeProducts.add(new Product(2,2, "White Bread", 50, 1.5, 0.8, 1 ));
         fakeProducts.add(new Product(3,3, "Rice", 340.6, 6, 78, 0.5 ));
+
+        days.add(new Day(1, "24 January 2022", meals));
     }
 
 
@@ -52,7 +54,7 @@ public class FakeRepository implements DBRepository {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
         String today = sdf.format(new Date());
 
-        if(getDay(days.size()-1).equals(today)) {
+        if(getDay(days.size()-1).getDay().equals(today)) {
             return day;
         } else {
             return null;
