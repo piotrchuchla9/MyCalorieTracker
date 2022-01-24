@@ -4,24 +4,14 @@ import java.util.List;
 
 public class Day {
 
-    List<Meal> meals;
-
     private int id;
     private String day;
-    private double calories;
-    private double proteins;
-    private double carbs;
-    private double fats;
-    private double quantity;
+    List<Meal> meals;
 
-    public Day(int id, String day, double calories, double proteins, double carbs, double fats, double quantity) {
+    public Day(int id, String day, List<Meal> meals) {
         this.id = id;
         this.day = day;
-        this.calories = calories;
-        this.proteins = proteins;
-        this.carbs = carbs;
-        this.fats = fats;
-        this.quantity = quantity;
+        this.meals = meals;
     }
 
 //    public double getSumCalories {
