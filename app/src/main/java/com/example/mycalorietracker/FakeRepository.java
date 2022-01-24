@@ -7,6 +7,7 @@ public class FakeRepository implements DBRepository {
 
     private List<Product> fakeProducts = new ArrayList<>();
     private static List<Meal> meals = new ArrayList<>();
+    private static List<Day> days = new ArrayList<>();
 
     public FakeRepository() {
         fakeProducts.add(new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ));
@@ -22,9 +23,7 @@ public class FakeRepository implements DBRepository {
     }
 
     @Override
-    public Day getDay(int dayId) {
-        return null;
-    }
+    public Day getDay(int dayId) { return null; }
 
     @Override
     public Product getProductById(int productId) {
@@ -41,5 +40,7 @@ public class FakeRepository implements DBRepository {
         meals.add(meal);
     }
 
+    @Override
+    public void insertDay(Day day) { days.add(day); }
 
 }

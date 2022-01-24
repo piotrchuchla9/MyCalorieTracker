@@ -33,4 +33,9 @@ public class SQLiteRepository implements DBRepository {
     public void insertMeal(Meal meal) {
 
     }
+
+    @Override
+    public void insertDay(Day day) {
+
+    }
 }

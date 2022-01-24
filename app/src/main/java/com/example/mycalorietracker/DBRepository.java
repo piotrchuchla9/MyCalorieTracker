@@ -10,6 +10,5 @@ public interface DBRepository {
 
     void insertMeal(Meal meal);
 
-    //getDay
-    //insertDay
+    void insertDay(Day day);
 }

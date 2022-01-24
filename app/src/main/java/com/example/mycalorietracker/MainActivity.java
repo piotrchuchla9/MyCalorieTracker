@@ -6,10 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button addMealButton;
+    private TextView currentDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
                 openAddMealClass();
             }
         });
+
+        currentDay = (TextView) findViewById(R.id.currentDay);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
+        String today = sdf.format(new Date());
+        currentDay.setText(today);
+
+
     }
 
     public void openAddMealClass() {

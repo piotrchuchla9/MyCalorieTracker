@@ -49,8 +49,8 @@
 
     <ListView
         android:id="@+id/productList"
-        android:layout_width="371dp"
-        android:layout_height="350dp"
+        android:layout_width="333dp"
+        android:layout_height="348dp"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,22 +60,23 @@
         android:id="@+id/selectedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="140dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productList" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/mealQuantity"
-        android:layout_width="109dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="108dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="120dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="100"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/selectedProduct"
-        app:layout_constraintTop_toBottomOf="@+id/productList" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
