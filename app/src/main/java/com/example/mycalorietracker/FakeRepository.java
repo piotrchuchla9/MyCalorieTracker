@@ -67,7 +67,12 @@ public class FakeRepository implements DBRepository {
 
     @Override
     public int getNextMealId() {
-        return meals.size();
+        return meals.size() + 1;
+    }
+
+    @Override
+    public int getNextDayId() {
+        return days.size() + 1;
     }
 
 }

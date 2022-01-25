@@ -17,4 +17,6 @@ public interface DBRepository {
 
     int getNextMealId();
 
+    int getNextDayId();
+
 }

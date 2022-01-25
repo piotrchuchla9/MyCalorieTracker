@@ -53,4 +53,9 @@ public class SQLiteRepository implements DBRepository {
     public int getNextMealId() {
         return 0;
     }
+
+    @Override
+    public int getNextDayId() {
+        return 0;
+    }
 }

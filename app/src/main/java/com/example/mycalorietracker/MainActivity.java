@@ -63,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
         MealsAdapter mealsAdapter = new MealsAdapter(this, meals);
         lvMeals.setAdapter(mealsAdapter);
 
-        Day day = new Day(2, today, meals);
+        Day day = repository.getCurrentDay();
+        if(day == null) {
+            day = new Day(repository.getNextDayId(), );
+        }
         repository.insertDay(day);
 
         calorieAmount = (TextView) findViewById(R.id.calorieAmount);
