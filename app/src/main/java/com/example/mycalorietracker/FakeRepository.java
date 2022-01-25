@@ -53,16 +53,21 @@ public class FakeRepository implements DBRepository {
     public void insertDay(Day day) { days.add(day); }
 
     @Override
-    public Day getCurrentDay(Day day) {
+    public Day getCurrentDay() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
         String today = sdf.format(new Date());
 
         if(getDay(days.size()-1).getDayDate().equals(today)) {
-            return day;
+            return (Day) days;
         } else {
             return null;
         }
 
+    }
+
+    @Override
+    public int getNextMealId() {
+        return meals.size();
     }
 
 }

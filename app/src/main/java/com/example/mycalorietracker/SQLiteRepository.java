@@ -45,7 +45,12 @@ public class SQLiteRepository implements DBRepository {
     }
 
     @Override
-    public Day getCurrentDay(Day day) {
+    public Day getCurrentDay() {
         return null;
+    }
+
+    @Override
+    public int getNextMealId() {
+        return 0;
     }
 }

@@ -10,6 +10,7 @@ public class Meal {
     private double carbs;
     private double fats;
     private double quantity;
+    private int dayId;
 
     public Meal(int id, int productId, String productName, double calories, double proteins, double carbs, double fats) {
         this.id = id;
@@ -21,9 +22,10 @@ public class Meal {
         this.fats = fats;
     }
 
-    public Meal(int id, Product p, double quantity) {
+    public Meal(int id, Product p, double quantity, int dayId) {
         this(id, p.getProductId(), p.getProductName(), p.getCalories(), p.getProteins(), p.getCarbs(), p.getFats());
         this.quantity = quantity;
+        this.dayId = dayId;
     }
 
     public int getId() {

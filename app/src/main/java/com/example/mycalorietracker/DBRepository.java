@@ -13,5 +13,8 @@ public interface DBRepository {
 
     void insertDay(Day day);
 
-    Day getCurrentDay(Day day);
+    Day getCurrentDay();
+
+    int getNextMealId();
+
 }

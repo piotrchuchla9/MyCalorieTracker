@@ -55,7 +55,7 @@ public class AddMeal extends AppCompatActivity {
 
         addButton.setOnClickListener(v -> {
             Product p = (Product) selectedProduct.getTag();
-            Meal meal = new Meal(0, p, Double.parseDouble(mealQuantity.getText().toString()));
+            Meal meal = new Meal(repository.getNextMealId() + 1, p, Double.parseDouble(mealQuantity.getText().toString()), repository.getCurrentDay().getId());
 
             if(mealQuantity.getText().toString().equals("0")) {
                 Context context = getApplicationContext();
