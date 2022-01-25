@@ -3,6 +3,7 @@ package com.example.mycalorietracker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -10,20 +11,15 @@ import java.util.stream.Collectors;
 
 public class FakeRepository implements DBRepository {
 
-    private List<Product> fakeProducts = new ArrayList<>();
+    private List<Product> fakeProducts = new ArrayList<Product>(Arrays.asList(
+            new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ),
+            new Product(2,2, "White Bread", 50, 1.5, 0.8, 1 ),
+            new Product(3,3, "Rice", 340.6, 6, 78, 0.5 )
+    ));
     private static List<Meal> meals = new ArrayList<>();
-    private static List<Day> days = new ArrayList<>();
+    private static List<Day> days = new ArrayList<Day>(Arrays.asList(new Day(1, "24 January 2022", Arrays.asList(new Meal(1, new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ), 50, 1)))));
 
-    public FakeRepository() {
-        fakeProducts.add(new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ));
-        fakeProducts.add(new Product(2,2, "White Bread", 50, 1.5, 0.8, 1 ));
-        fakeProducts.add(new Product(3,3, "Rice", 340.6, 6, 78, 0.5 ));
-
-        List<Meal> fakeMeals = new ArrayList<>();
-        fakeMeals.add(new Meal(1, fakeProducts.get(1), 50, 1));
-
-        days.add(new Day(1, "24 January 2022", fakeMeals));
-    }
+    public FakeRepository() { }
 
     @Override
     public Meal getMealByDay(int dayId) {
@@ -60,7 +56,7 @@ public class FakeRepository implements DBRepository {
         String today = sdf.format(new Date());
 
         if(getDay(days.size()-1).getDayDate().equals(today)) {
-            return (Day) days;
+            return getDay(days.size()-1);
         } else {
             return null;
         }
