@@ -46,7 +46,6 @@ public class Day {
     //---------------------------------------------
 
 
-
     public double getSumCalories() {
         double sum = 0;
 

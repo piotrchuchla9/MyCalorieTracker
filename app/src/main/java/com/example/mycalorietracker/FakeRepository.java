@@ -75,7 +75,7 @@ public class FakeRepository implements DBRepository {
 
     @Override
     public List<Meal> getMealsForDay(int dayId) {
-        return meals.stream().filter(meal -> meal.getId() == dayId).collect(Collectors.toList());
+        return meals.stream().filter(meal -> meal.getDayId() == dayId).collect(Collectors.toList());
     }
 
 }

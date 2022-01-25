@@ -92,4 +92,6 @@ public class Meal {
         this.quantity = quantity;
     }
 
+    public int getDayId() { return dayId; }
+
 }

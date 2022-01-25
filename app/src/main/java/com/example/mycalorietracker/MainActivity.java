@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lvMeals = (ListView)findViewById(R.id.myMealsList);
         meals = repository.getMealsForDay(day.getId());
+        day.setMeals(meals);
 
         MealsAdapter mealsAdapter = new MealsAdapter(this, meals);
         lvMeals.setAdapter(mealsAdapter);
