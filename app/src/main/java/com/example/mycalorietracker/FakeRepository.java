@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class FakeRepository implements DBRepository {
 
@@ -18,10 +19,11 @@ public class FakeRepository implements DBRepository {
         fakeProducts.add(new Product(2,2, "White Bread", 50, 1.5, 0.8, 1 ));
         fakeProducts.add(new Product(3,3, "Rice", 340.6, 6, 78, 0.5 ));
 
-        days.add(new Day(1, "24 January 2022", meals));
+        List<Meal> fakeMeals = new ArrayList<>();
+        fakeMeals.add(new Meal(1, fakeProducts.get(1), 50, 1));
+
+        days.add(new Day(1, "24 January 2022", fakeMeals));
     }
-
-
 
     @Override
     public Meal getMealByDay(int dayId) {
@@ -73,6 +75,11 @@ public class FakeRepository implements DBRepository {
     @Override
     public int getNextDayId() {
         return days.size() + 1;
+    }
+
+    @Override
+    public List<Meal> getMealsForDay(int dayId) {
+        return meals.stream().filter(meal -> meal.getId() == dayId).collect(Collectors.toList());
     }
 
 }

@@ -19,4 +19,6 @@ public interface DBRepository {
 
     int getNextDayId();
 
+    List<Meal> getMealsForDay(int dayId);
+
 }

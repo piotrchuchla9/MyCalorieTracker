@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -57,17 +58,18 @@ public class MainActivity extends AppCompatActivity {
         today = sdf.format(new Date());
         currentDay.setText(today);
 
+        Day day = repository.getCurrentDay();
+        if(day == null) {
+            day = new Day(repository.getNextDayId(), today, new ArrayList<Meal>());
+            repository.insertDay(day);
+        }
+
         ListView lvMeals = (ListView)findViewById(R.id.myMealsList);
-        meals = repository.getMeals();
+        meals = repository.getMealsForDay(day.getId());
 
         MealsAdapter mealsAdapter = new MealsAdapter(this, meals);
         lvMeals.setAdapter(mealsAdapter);
 
-        Day day = repository.getCurrentDay();
-        if(day == null) {
-            day = new Day(repository.getNextDayId(), );
-        }
-        repository.insertDay(day);
 
         calorieAmount = (TextView) findViewById(R.id.calorieAmount);
         proteinAmount = (TextView) findViewById(R.id.proteinAmount);
