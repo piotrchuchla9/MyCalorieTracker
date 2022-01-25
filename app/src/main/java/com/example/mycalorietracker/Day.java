@@ -26,7 +26,7 @@ public class Day {
         this.id = id;
     }
 
-    public String getDay() {
+    public String getDayDate() {
         return day;
     }
 

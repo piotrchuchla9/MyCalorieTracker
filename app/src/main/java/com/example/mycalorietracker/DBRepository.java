@@ -7,6 +7,7 @@ public interface DBRepository {
     Day getDay(int dayId);
     Product getProductById(int productId);
     List<Product> getProducts();
+    List<Meal> getMeals();
 
     void insertMeal(Meal meal);
 

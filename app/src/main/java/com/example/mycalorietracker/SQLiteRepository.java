@@ -30,6 +30,11 @@ public class SQLiteRepository implements DBRepository {
     }
 
     @Override
+    public List<Meal> getMeals() {
+        return null;
+    }
+
+    @Override
     public void insertMeal(Meal meal) {
 
     }

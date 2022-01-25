@@ -2,14 +2,17 @@ package com.example.mycalorietracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class AddMeal extends AppCompatActivity {
     private Button addButton;
     private TextView selectedProduct;
     private EditText mealQuantity;
+    private TextView gram;
 
     List<Product> products;
 
@@ -40,36 +44,49 @@ public class AddMeal extends AppCompatActivity {
 
         selectedProduct = (TextView) findViewById(R.id.selectedProduct);
         mealQuantity = (EditText) findViewById(R.id.mealQuantity);
+        gram = (TextView) findViewById(R.id.gram);
+        addButton = (Button) findViewById(R.id.addButton);
 
+        addButton.setVisibility(View.INVISIBLE);
         selectedProduct.setVisibility(View.INVISIBLE);
         mealQuantity.setVisibility(View.INVISIBLE);
+        gram.setVisibility(View.INVISIBLE);
 
 
-
-        addButton = (Button) findViewById(R.id.addButton);
         addButton.setOnClickListener(v -> {
             Product p = (Product) selectedProduct.getTag();
             Meal meal = new Meal(0, p, Double.parseDouble(mealQuantity.getText().toString()));
-            repository.insertMeal(meal);
-            openActivityMain();
+
+            if(mealQuantity.getText().toString().equals("0")) {
+                Context context = getApplicationContext();
+                Toast noInput = Toast.makeText(context, "First insert amount!", Toast.LENGTH_SHORT);
+                noInput.show();
+            } else {
+                repository.insertMeal(meal);
+                openActivityMain();
+            }
+
         });
         //list
         ListView lvProducts = (ListView)findViewById(R.id.productList);
 
         products = repository.getProducts();
 
-        ProductsAdapter adapter = new ProductsAdapter(this, products);
+        ProductsAdapter productsAdapter = new ProductsAdapter(this, products);
 
-        lvProducts.setAdapter(adapter);
+        lvProducts.setAdapter(productsAdapter);
         lvProducts.setOnItemClickListener((adapterView, view, i, l) -> {
             Product p = products.get(i);
             Log.d("AddMealActivity", "Clicked " + p.getProductName());
 
             selectedProduct.setVisibility(View.VISIBLE);
             mealQuantity.setVisibility(View.VISIBLE);
+            gram.setVisibility(View.VISIBLE);
+            addButton.setVisibility(View.VISIBLE);
 
             selectedProduct.setText(p.getProductName());
             selectedProduct.setTag(p);
+            mealQuantity.setHint("insert");
         });
     }
 

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="175dp"
         android:text="Day"
         android:textSize="20sp"
@@ -55,7 +58,7 @@
         android:id="@+id/carbs"
         android:layout_width="71dp"
         android:layout_height="26dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="116dp"
         android:text="Carbs"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/fats"
@@ -67,7 +70,7 @@
         android:id="@+id/protein"
         android:layout_width="71dp"
         android:layout_height="26dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="116dp"
         android:text="Protein"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/carbs"
@@ -79,7 +82,7 @@
         android:id="@+id/fats"
         android:layout_width="71dp"
         android:layout_height="26dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="116dp"
         android:text="Fats"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,10 +134,9 @@
         android:id="@+id/addMealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:text="Add Meal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calorieAmount" />
 
@@ -151,15 +153,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMealButton" />
 
+
     <ListView
         android:id="@+id/myMealsList"
-        android:layout_width="320dp"
-        android:layout_height="197dp"
+        android:layout_width="316dp"
+        android:layout_height="154dp"
         android:layout_marginTop="16dp"
+        android:isScrollContainer="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/todayMeals" />
+
 
     <TextView
         android:id="@+id/currentDay"
@@ -171,3 +176,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/day" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
