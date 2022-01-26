@@ -18,6 +18,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private Button addMealButton;
+    private Button addPhotoButton;
+
     private TextView currentDay;
     private TextView calorieAmount;
     private TextView proteinAmount;
@@ -42,10 +44,23 @@ public class MainActivity extends AppCompatActivity {
                 openAddMealClass();
             }
         });
+
+        addPhotoButton = (Button) findViewById(R.id.addPhotoButton);
+        addPhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddPhotoClass();
+            }
+        });
     }
 
     public void openAddMealClass() {
         Intent intent = new Intent(this, AddMeal.class);
+        startActivity(intent);
+    }
+
+    public void openAddPhotoClass() {
+        Intent intent = new Intent(this, PhotoActivity.class);
         startActivity(intent);
     }
 
