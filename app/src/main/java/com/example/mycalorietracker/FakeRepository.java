@@ -43,6 +43,9 @@ public class FakeRepository implements DBRepository {
     public List<Meal> getMeals() { return meals; }
 
     @Override
+    public List<Day> getDays() { return days; }
+
+    @Override
     public void insertMeal(Meal meal) {
         meals.add(meal);
     }

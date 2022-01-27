@@ -71,6 +71,8 @@ public class PhotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
     }
 
+    DBRepository repository = new FakeRepository();
+
     @Override
     public void onStart() {
         super.onStart();
@@ -79,7 +81,10 @@ public class PhotoActivity extends AppCompatActivity {
         noPhoto = (TextView) findViewById(R.id.noPhoto);
         makePhoto = (Button) findViewById(R.id.makePhoto);
 
-        String currentDay = sdf.format(new Date());
+
+        Day day = repository.getCurrentDay();
+        //String currentDay = sdf.format(new Date());
+        String currentDay = day.getDayDate();
         String photoPath = getFilesDir() + "/SaveImage/" + currentDay + ".jpg";
 
         BitmapFactory.Options options = new BitmapFactory.Options();

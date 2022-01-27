@@ -8,6 +8,7 @@ public interface DBRepository {
     Product getProductById(int productId);
     List<Product> getProducts();
     List<Meal> getMeals();
+    List<Day> getDays();
 
     void insertMeal(Meal meal);
 

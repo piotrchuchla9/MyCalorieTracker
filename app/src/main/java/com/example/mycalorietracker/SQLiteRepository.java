@@ -35,6 +35,11 @@ public class SQLiteRepository implements DBRepository {
     }
 
     @Override
+    public List<Day> getDays() {
+        return null;
+    }
+
+    @Override
     public void insertMeal(Meal meal) {
 
     }

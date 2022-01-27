@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addMealButton;
     private Button addPhotoButton;
+    private ImageButton callendarButton;
 
     private TextView currentDay;
     private TextView calorieAmount;
@@ -52,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
                 openAddPhotoClass();
             }
         });
+
+        callendarButton = (ImageButton) findViewById(R.id.callendarButton);
+        callendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCallendarClass();
+            }
+        });
     }
 
     public void openAddMealClass() {
@@ -61,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAddPhotoClass() {
         Intent intent = new Intent(this, PhotoActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCallendarClass() {
+        Intent intent = new Intent(this, CallendarActivity.class);
         startActivity(intent);
     }
 
