@@ -12,6 +12,7 @@
 
     <application
 
+        android:requestLegacyExternalStorage="true"
         android:largeHeap="true"
         android:hardwareAccelerated="false"
         android:allowBackup="true"
