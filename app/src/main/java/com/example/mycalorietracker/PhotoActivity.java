@@ -62,6 +62,8 @@ public class PhotoActivity extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
 
+    File dir;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,32 +80,14 @@ public class PhotoActivity extends AppCompatActivity {
         makePhoto = (Button) findViewById(R.id.makePhoto);
 
         String currentDay = sdf.format(new Date());
-        String photoPath = "/root/storage/emulated/0/SaveImage/" + currentDay + ".jpg";
+        String photoPath = getFilesDir() + "/SaveImage/" + currentDay + ".jpg";
 
-//        try ( InputStream is = new URL( photoPath ).openStream() ) {
-//            Bitmap bitmap = BitmapFactory.decodeStream( is );
-//            myPhoto.setImageBitmap(bitmap);
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        Bitmap btmap = BitmapFactory.decodeFile(photoPath, options);
+        myPhoto.setImageBitmap(btmap);
 
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-//        Bitmap btmap = BitmapFactory.decodeFile(photoPath, options);
-//        myPhoto.setImageBitmap(btmap);
 
-//        File imgFile = new File("/root/storage/emulated/0/SaveImage/" + currentDay + ".jpg");
-//        if(imgFile.exists()) {
-//            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-//            myPhoto.setImageBitmap(myBitmap);
-//        }
-
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inSampleSize = 8;
-//        Bitmap bitmapPicture = BitmapFactory.decodeFile(photoPath);
-//        myPhoto.setImageBitmap(bitmapPicture);
 
         if(myPhoto.getDrawable() == null) {
             noPhoto.setVisibility(View.VISIBLE);
@@ -171,10 +155,10 @@ public class PhotoActivity extends AppCompatActivity {
     }
 
     private void saveImage() {
-        File dir = new File(Environment.getExternalStorageDirectory(), "SaveImage");
+        dir = new File(this.getFilesDir(), "SaveImage");
 
         if(!dir.exists()) {
-            dir.mkdir();
+            dir.mkdirs();
         }
 
         BitmapDrawable drawable = (BitmapDrawable) myPhoto.getDrawable();
