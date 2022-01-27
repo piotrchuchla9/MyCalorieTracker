@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.icu.text.CaseMap;
 import android.net.Uri;
 import android.os.Build;
@@ -35,7 +36,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -56,6 +60,9 @@ public class PhotoActivity extends AppCompatActivity {
     OutputStream outputStream;
     ActivityResultLauncher<Intent> activityResultLauncher;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,20 +77,41 @@ public class PhotoActivity extends AppCompatActivity {
         noPhoto = (TextView) findViewById(R.id.noPhoto);
         makePhoto = (Button) findViewById(R.id.makePhoto);
 
+        String currentDay = sdf.format(new Date());
+        String photoPath = "/root/storage/emulated/0/SaveImage/" + currentDay + ".jpg";
+
+//        try ( InputStream is = new URL( photoPath ).openStream() ) {
+//            Bitmap bitmap = BitmapFactory.decodeStream( is );
+//            myPhoto.setImageBitmap(bitmap);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//        BitmapFactory.Options options = new BitmapFactory.Options();
+//        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+//        Bitmap btmap = BitmapFactory.decodeFile(photoPath, options);
+//        myPhoto.setImageBitmap(btmap);
+
+//        File imgFile = new File("/root/storage/emulated/0/SaveImage/" + currentDay + ".jpg");
+//        if(imgFile.exists()) {
+//            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+//            myPhoto.setImageBitmap(myBitmap);
+//        }
+
+//        BitmapFactory.Options options = new BitmapFactory.Options();
+//        options.inSampleSize = 8;
+//        Bitmap bitmapPicture = BitmapFactory.decodeFile(photoPath);
+//        myPhoto.setImageBitmap(bitmapPicture);
+
         if(myPhoto.getDrawable() == null) {
             noPhoto.setVisibility(View.VISIBLE);
         } else {
             noPhoto.setVisibility(View.INVISIBLE);
         }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
-        String currentDay = sdf.format(new Date());
 
-        String photoPath = "/root/storage/emulated/0/SaveImage/" + currentDay + ".jpg";
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        Bitmap btmap = BitmapFactory.decodeFile(photoPath, options);
-        myPhoto.setImageBitmap(btmap);
 
 
 
@@ -152,7 +180,6 @@ public class PhotoActivity extends AppCompatActivity {
         BitmapDrawable drawable = (BitmapDrawable) myPhoto.getDrawable();
         Bitmap bitmap = Bitmap.createBitmap(drawable.getBitmap());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
         String thatDay = sdf.format(new Date());
 
         File file = new File(dir, thatDay + ".jpg");
