@@ -36,18 +36,19 @@ public class CallendarActivity extends AppCompatActivity {
             Day d = days.get(i);
             Log.d("CallendarActivity", "Clicked " + d.getDayDate());
 
-            //set choosen day
-
-
-
-
-            openMainClass();
+            openPastDaySummaryActivity(d);
         });
 
     }
 
-    public void openMainClass() {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void openPastDaySummaryActivity(Day d) {
+        Intent intent = new Intent(this, PastDaySummaryActivity.class);
+
+        Bundle b = new Bundle();
+        b.putInt("dayId", d.getId());
+        intent.putExtras(b);
         startActivity(intent);
+
+        finish();
     }
 }

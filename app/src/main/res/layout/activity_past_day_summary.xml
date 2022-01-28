@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PastDaySummaryActivity"
+    android:name=".Activity">
+
+
+    <TextView
+        android:id="@+id/carbsAmountPast"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/fatsAmountPast"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/proteinAmountPast"
+        app:layout_constraintTop_toBottomOf="@+id/carbsPast" />
+
+    <TextView
+        android:id="@+id/fatsAmountPast"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/carbsAmountPast"
+        app:layout_constraintTop_toBottomOf="@+id/fatsPast" />
+
+    <TextView
+        android:id="@+id/dayPast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="175dp"
+        android:text="Day"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/carbsPast"
+        android:layout_width="71dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="116dp"
+        android:text="Carbs"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/fatsPast"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/proteinPast"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/proteinPast"
+        android:layout_width="71dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="116dp"
+        android:text="Protein"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/carbsPast"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fatsPast"
+        android:layout_width="71dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="116dp"
+        android:text="Fats"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/carbsPast"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/proteinAmountPast"
+        android:layout_width="71dp"
+        android:layout_height="28dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/carbsAmountPast"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proteinPast" />
+
+    <TextView
+        android:id="@+id/calorieAmountPast"
+        android:layout_width="86dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caloriePast" />
+
+    <TextView
+        android:id="@+id/caloriePast"
+        android:layout_width="86dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:text="Calorie"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carbsAmountPast" />
+
+
+    <TextView
+        android:id="@+id/todayMealsPast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="My meals"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPhotoButtonPast" />
+
+    <ListView
+        android:id="@+id/myMealsListPast"
+        android:layout_width="316dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="16dp"
+        android:isScrollContainer="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todayMealsPast" />
+
+
+    <TextView
+        android:id="@+id/currentDayPast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayPast" />
+
+    <Button
+        android:id="@+id/addPhotoButtonPast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="PHOTO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calorieAmountPast" />
+
+    <ImageButton
+        android:id="@+id/callendarButtonPast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_today" />
+
+    <Button
+        android:id="@+id/backMainButton"
+        android:layout_width="55dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
+        android:text="TODAY"
+        android:textSize="6dp"
+        app:iconPadding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/callendarButtonPast" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

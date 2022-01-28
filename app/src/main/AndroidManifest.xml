@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalorieTracker">
         <activity
+            android:name=".PastDaySummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".CallendarActivity"
             android:exported="false" />
         <activity
