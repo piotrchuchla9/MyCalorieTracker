@@ -92,7 +92,7 @@ public class PastDaySummaryActivity extends AppCompatActivity {
         Day day = repository.getDay(dayId-1);
         ListView lvMeals = (ListView)findViewById(R.id.myMealsListPast);
         meals = repository.getMealsForDay(day.getId());
-        //day.setMeals(meals);
+        day.setMeals(meals);
 
         MealsAdapter mealsAdapter = new MealsAdapter(this, meals);
         lvMeals.setAdapter(mealsAdapter);

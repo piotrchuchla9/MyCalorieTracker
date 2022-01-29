@@ -16,7 +16,7 @@ public class FakeRepository implements DBRepository {
             new Product(2,2, "White Bread", 50, 1.5, 0.8, 1 ),
             new Product(3,3, "Rice", 340.6, 6, 78, 0.5 )
     ));
-    private static List<Meal> meals = new ArrayList<>();
+    private static List<Meal> meals = new ArrayList<>(Arrays.asList(new Meal(1, new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ), 50, 1)));
     private static List<Day> days = new ArrayList<Day>(Arrays.asList(new Day(1, "24 January 2022", Arrays.asList(new Meal(1, new Product(1,1, "Egg", 63, 5.5, 0.3, 4.2 ), 50, 1)))));
 
     public FakeRepository() { }
