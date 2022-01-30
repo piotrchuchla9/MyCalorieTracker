@@ -4,7 +4,6 @@ import java.util.List;
 
 public class SQLiteRepository implements DBRepository {
 
-    DBHelper db = new DBHelper();
 
     @Override
     public Meal getMealByDay(int dayId) {

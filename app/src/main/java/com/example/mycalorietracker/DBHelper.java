@@ -20,7 +20,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PRODUCTS_FATS = "fats";
 
     public static final String MEALS_TABLE = "Meals";
-    public static final String MEAL_TABLE = "Products";
     public static final String MEAL_ID = "id";
     public static final String MEAL_PRODUCT_ID = "productId";
     public static final String MEAL_PRODUCT_NAME = "productName";
@@ -36,12 +35,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DAY_DAY = "day";
 
 
-
-
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
     }
+
+
 
 
     @Override
@@ -68,6 +67,37 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(PRODUCTS_CARBS, carbs);
         contentValues.put(PRODUCTS_FATS, fats);
         long result = db.insert(PRODUCTS_TABLE, null, contentValues);
+        if(result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean insertMealData(int productId, String productName, double caloreis, double proteins, double carbs, double fats, double quantity, int dayId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MEAL_PRODUCT_ID, productId);
+        contentValues.put(MEAL_PRODUCT_NAME, productName);
+        contentValues.put(MEAL_CALORIES, caloreis);
+        contentValues.put(MEAL_PROTEINS, proteins);
+        contentValues.put(MEAL_CARBS, carbs);
+        contentValues.put(MEAL_FATS, fats);
+        contentValues.put(MEAL_QUANTITY, quantity);
+        contentValues.put(MEAL_DAY_ID, dayId);
+        long result = db.insert(MEALS_TABLE, null, contentValues);
+        if(result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean insertDayData(String day) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DAY_ID, day);
+        long result = db.insert(DAYS_TABLE, null, contentValues);
         if(result == -1) {
             return false;
         } else {
