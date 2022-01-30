@@ -5,16 +5,14 @@ import java.util.List;
 public class Product {
 
     private int id;
-    private int productId;
     private String productName;
     private double calories;
     private double proteins;
     private double carbs;
     private double fats;
 
-    public Product(int id, int productId, String productName, double calories, double proteins, double carbs, double fats) {
+    public Product(int id, String productName, double calories, double proteins, double carbs, double fats) {
         this.id = id;
-        this.productId = productId;
         this.productName = productName;
         this.calories = calories;
         this.proteins = proteins;
@@ -33,11 +31,11 @@ public class Product {
     }
 
     public int getProductId() {
-        return productId;
+        return id;
     }
 
     public void setProductId(int productId) {
-        this.productId = productId;
+        this.id = id;
     }
 
     public String getProductName() {
